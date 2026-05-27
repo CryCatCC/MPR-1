@@ -76,7 +76,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://localhost:8006/validate-token",
+					"raw": "http://localhost:8006/validate-token?token=valid-token-601",
 					"protocol": "http",
 					"host": [
 						"localhost"
