@@ -1,10 +1,7 @@
 version: '3.8'
-
 services:
-
-  auth-service-06:
+  auth_service:
     build: ./auth_service
-    container_name: auth-service-06
     ports:
       - "8006:8000"
     environment:
@@ -12,15 +9,14 @@ services:
     networks:
       - lab-network
 
-  resource-service-06:
+  resource_service:
     build: ./resource_service
-    container_name: resource-service-06
     ports:
       - "9006:8000"
     environment:
       - STUDENT_N=6
     depends_on:
-      - auth-service-06
+      - auth_service
     networks:
       - lab-network
 
