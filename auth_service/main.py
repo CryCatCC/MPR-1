@@ -46,5 +46,3 @@ def validate_token(token: str):
         "valid": True,
         "user": TOKENS[token]
     }
-
-    

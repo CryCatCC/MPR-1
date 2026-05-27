@@ -66,5 +66,3 @@ def update_data(request: UpdateRequest):
         "message": "Data updated successfully",
         "updated_data": SECURE_DATA
     }
-
-    
