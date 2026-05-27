@@ -1,93 +1,89 @@
 {
-	"info": {
-		"_postman_id": "00866758-8c0b-4fa9-94ba-0a96c803ee35",
-		"name": "Lab6_Microservices",
-		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "55287857"
-	},
-	"item": [
-		{
-			"name": "POST Login",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Response has student_id\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.student_id).to.eql(6);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n    \"username\": \"admin\",\n    \"password\": \"password123\"\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8006/login",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8006",
-					"path": [
-						"login"
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "GET Secure Data",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"exec": [
-							"pm.test(\"Status code is 200\", function () {",
-							"    pm.response.to.have.status(200);",
-							"});",
-							"",
-							"pm.test(\"Response has student_id\", function () {",
-							"    var jsonData = pm.response.json();",
-							"    pm.expect(jsonData.student_id).to.eql(6);",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"request": {
-				"method": "GET",
-				"header": [],
-				"url": {
-					"raw": "http://localhost:8006/validate-token?token=valid-token-601",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8006",
-					"path": [
-						"validate-token"
-					]
-				}
-			},
-			"response": []
-		}
-	]
+  "info": {
+    "_postman_id": "00866758-8c0b-4fa9-94ba-0a96c803ee35",
+    "name": "Lab6_Microservices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "55287857"
+  },
+  "item": [
+    {
+      "name": "POST Login",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has student_id\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.student_id).to.eql(6);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8006/login",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8006",
+          "path": ["login"]
+        }
+      }
+    },
+    {
+      "name": "GET Secure Data",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code is 200\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Response has student_id\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData.student_id).to.eql(6);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8006/validate-token?token=valid-token-601",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8006",
+          "path": ["validate-token"],
+          "query": [
+            {
+              "key": "token",
+              "value": "valid-token-601"
+            }
+          ]
+        }
+      }
+    }
+  ]
 }
