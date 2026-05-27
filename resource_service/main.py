@@ -5,7 +5,7 @@ import os
 
 STUDENT_N = int(os.getenv("STUDENT_N", 6))
 
-AUTH_SERVICE_URL = "http://auth-service-06:8000"
+AUTH_SERVICE_URL = "http://auth_service:8000"
 
 app = FastAPI(title=f"Resource API N{STUDENT_N}")
 
