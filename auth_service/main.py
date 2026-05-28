@@ -33,7 +33,7 @@ def login(data: LoginRequest):
         "token": "valid-token-601",
         "message": "Authentication successful"
     }
-
+# Added Issue #2 implementation
 
 @app.get("/validate-token")
 def validate_token(token: str):
