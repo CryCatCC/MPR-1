@@ -1,4 +1,4 @@
-<img width="689" height="751" alt="image" src="https://github.com/user-attachments/assets/6aaea207-2f04-4c6a-b506-e112de150d8c" /># MPR-Microservices Architecture "Security and Resources"
+# MPR-Microservices Architecture "Security and Resources"
 
 [![Automated API Tests](https://github.com/CryCatCC/MPR-/actions/workflows/api-tests.yml/badge.svg)](https://github.com/CryCatCC/MPR-/actions/workflows/api-tests.yml)
 
@@ -59,14 +59,16 @@ microservices_project/
 ### 🔑 Auth Service ( :8006 )
 
 Method	Endpoint	      Description
-POST	 /login	          Генерація сесійного токена
-GET	   /validate-token	Внутрішня перевірка прав доступу маркеру
+POST	 /login	              Генерація сесійного токена
+GET	 /validate-token	Внутрішня перевірка прав доступу маркеру
+
 ---
 ### 📦 Resource API ( :9006 )
 
 Method	Endpoint	     Description
-GET	   /secure-data	   Отримання захищених даних (потребує валідації)
+GET	 /secure-data	   Отримання захищених даних (потребує валідації)
 POST	 /update-data	   Запис змін у систему (потребує валідації)
+
 ---
 ⚠️ Увага: Кожна JSON-відповідь обох серверів містить обов'язкове поле метаданих "student_id": 6
 
