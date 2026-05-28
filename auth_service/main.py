@@ -2,14 +2,18 @@ from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import os
 
+
 STUDENT_N = int(os.getenv("STUDENT_N", 6))
 
+
 app = FastAPI(title=f"Auth Service N{STUDENT_N}")
+
 
 # Імітація користувачів
 USERS = {
     "admin": "password123"
 }
+
 
 # Імітація токенів
 TOKENS = {
@@ -33,8 +37,9 @@ def login(data: LoginRequest):
         "token": "valid-token-601",
         "message": "Authentication successful"
     }
-# Added Issue #2 implementation
 
+
+# Added Issue #2 implementation
 @app.get("/validate-token")
 def validate_token(token: str):
 
