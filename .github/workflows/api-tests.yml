@@ -1,50 +1,9 @@
-# name: Automated API Tests
-
-# on:
-#   push:
-#     branches: ["main"]
-#   pull_request:
-#     branches: ["main"]
-
-# jobs:
-#   test-microservices:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-
-#       - name: Set up Python 3.10
-#         uses: actions/setup-python@v5
-#         with:
-#           python-version: "3.10"
-
-#       - name: Lint code with flake8
-#         run: |
-#           pip install flake8
-#           flake8 .
-#       - name: Demonstrate GitHub Secrets
-#         env:
-#           SUPER_SECRET: ${{ secrets.MY_SUPER_SECRET_KEY }}
-#         run: |
-#           echo "Спроба вивести секрет у консоль:"
-#           echo "Мій секрет: $SUPER_SECRET"
-#       - name: Start Docker Compose
-#         run: docker compose up -d --build
-
-#       - name: Wait for services to be ready
-#         run: sleep 10
-
-#       - name: Install Node.js and Newman
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: "18"
-
-#       - name: Run Postman Collection
-#         run: npm install -g newman && newman run collection.json
-
 name: Python CI
 
 on:
   push:
+    branches: ["main"]
+  pull_request:
     branches: ["main"]
 
 jobs:
@@ -52,7 +11,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v4
 
       - name: Set up Python
@@ -62,16 +20,15 @@ jobs:
 
       - name: Install dependencies
         run: |
-          pip install flake8
-          pip install pytest
-          pip install fastapi
-          pip install httpx
-          pip install requests
+          python -m pip install --upgrade pip
+          pip install flake8 pytest fastapi httpx requests
 
       - name: Lint code
         run: |
           flake8 .
 
       - name: Run unit tests
+        env:
+          PYTHONPATH: ${{ github.workspace }}
         run: |
           pytest tests -v
